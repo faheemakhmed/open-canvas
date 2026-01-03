@@ -1,21 +1,20 @@
 "use client"
 
-import { ClerkProvider, useAuth } from "@clerk/nextjs"
+import { ClerkProvider, useAuth , SignInButton } from "@clerk/nextjs"
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 
 import { 
     AuthLoading,
     Authenticated,
     ConvexReactClient,
+    Unauthenticated,
  } from "convex/react";
-import { Loading } from "@/components/loading";
 
  interface ConvexCLientProviderProps {
     children: React.ReactNode;
  }
 
-const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL!; //this was the original, next line is just me trying
-//const convexUrl = "https://frank-polliwog-16.clerk.accounts.dev"; 
+const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL!; 
 
 const convex = new ConvexReactClient(convexUrl);
 
@@ -29,9 +28,11 @@ export const ConvexClientProvider = ({
                     {children}
                 </Authenticated>
                 <AuthLoading>
-                    <Loading />
-                </AuthLoading>
-
+                    <h1>this is  a loading page</h1>
+                </AuthLoading> 
+                <Unauthenticated>
+                    <SignInButton />
+                </Unauthenticated>
             </ConvexProviderWithClerk>
         </ClerkProvider>
     );
