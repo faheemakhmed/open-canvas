@@ -28,7 +28,11 @@ export const ConvexClientProvider = ({
                     {children}
                 </Authenticated>
                 <AuthLoading>
-                    <h1>this is  a loading page</h1>
+                    <div className="pl-10 bg-fuchsia-400 " >
+                        <h1>
+                            this is  a loading page
+                        </h1>
+                    </div>
                 </AuthLoading> 
                 <Unauthenticated>
                     <SignInButton />
