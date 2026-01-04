@@ -1,7 +1,9 @@
 const DashboardPage = () => {
     return (
-        <div>
-            DASHBOARD PAGE
+        <div >
+            <div className="pt-3 pl-3">
+                DASHBOARD PAGE
+            </div>
         </div>
     )
 }
